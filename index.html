@@ -71,6 +71,9 @@
               <!-- segundo boton para predecir el segundo predict -->
               <button class="btn btn-success" id="predecir" onclick="predecir2()">Predecir2</button>
 
+              <!-- boton de resultado -->
+              <button class="btn btn-success" id="predecir" onclick="calcularResultado()">Calcular Suma</button>
+
               <table>
                 <thead>
                   <th>predict 1</th>
@@ -103,6 +106,7 @@
     <script type="text/javascript">
 
       var modelo = null;
+
 
       //Tomar y configurar el canvas
       //primer predict y su resultado ----------------------------------------------------------------
@@ -151,9 +155,9 @@
             
             //predict 1
             var resultados = modelo.predict(tensor4).dataSync();
-            var mayorIndice = resultados.indexOf(Math.max.apply(null, resultados));
-            console.log("Prediccion", mayorIndice);
-            document.getElementById("predict1").innerHTML = mayorIndice;
+            var pre1 = resultados.indexOf(Math.max.apply(null, resultados));
+            console.log("Prediccion", pre1);
+            document.getElementById("predict1").innerHTML = pre1;
 
         } 
 
@@ -271,9 +275,9 @@
             
             //predict 2
             var resultados = modelo.predict(tensor4).dataSync();
-            var mayorIndice = resultados.indexOf(Math.max.apply(null, resultados));
-            console.log("Prediccion", mayorIndice);
-            document.getElementById("predict2").innerHTML = mayorIndice;
+            var pre2 = resultados.indexOf(Math.max.apply(null, resultados));
+            console.log("Prediccion", pre2);
+            document.getElementById("predict2").innerHTML = pre2;
 
         } 
 
@@ -366,8 +370,14 @@
         }
 
 
-
-        
+        // Calcular y mostrar el resultado de la suma de las predicciones
+        function calcularResultado() {
+            var pre1 = parseInt(document.getElementById("predict1").innerText) || 0;
+            var pre2 = parseInt(document.getElementById("predict2").innerText) || 0;
+            var resultado = pre1 + pre2;
+            document.getElementById("resultado3").innerText = resultado;
+        }
+                
         
 
       //Cargar modelo
