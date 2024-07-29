@@ -28,8 +28,8 @@
       }
 
       .canvas-container {
-          margin: 0 auto;
-          border: 1px solid #ccc;
+        margin: 0 auto;
+        border: 1px solid #ccc;
       }
     </style>
 
@@ -50,20 +50,27 @@
       <div class="b-example-divider"></div>
 
       <div class="container mt-5">
-        <div class="row">
-          <div class="col-12 col-md-4 offset-md-4">
-            <div id="canvas-container">
-              <div><i>Dibuja el número grande y centrado para tener una mejor predicción</i></div>
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-3"><i>Dibuja el número grande y centrado para tener una mejor predicción</i></div>
 
-              <!-- primer segmento -->
-              <canvas id="bigcanvas" width="200" height="200"></canvas>
-              <canvas id="smallcanvas" width="28" height="28" style="display: none"></canvas>
+            <!-- seccion de dibijado -->
+            <div class="col-md-6 ">
+                <div class="row ">
+                    <div class="col-md-6 ">
+                        <!-- primer segmento -->
+                        <canvas id="bigcanvas" width="200" height="200" style="float: left;"></canvas>
+                        <canvas id="smallcanvas" width="28" height="28" style="display: none"></canvas>
+                    </div>
 
-              <!-- segundo segmento -->
-              <canvas id="bigcanvas2" width="200" height="200"></canvas>
-              <canvas id="smallcanvas2" width="28" height="28" style="display: none"></canvas>
-
+                    <div class="col-md-6 ">
+                            <!-- segundo segmento -->
+                        <canvas id="bigcanvas2" width="200" height="200"></canvas>
+                        <canvas id="smallcanvas2" width="28" height="28" style="display: none"></canvas>
+                    </div>
+                </div>
             </div>
+
+            <!-- botones y recuadros de predicciones -->
             <div class="text-center mt-3">
               <button class="btn btn-primary" id="limpiar" onclick="limpiar()">Limpiar</button>
               <button class="btn btn-success" id="predecir" onclick="predecir()">Predecir1</button>
@@ -74,23 +81,26 @@
               <!-- boton de resultado -->
               <button class="btn btn-success" id="predecir" onclick="calcularResultado()">Calcular Suma</button>
 
-              <table>
+              <table class="mt-3">
                 <thead>
                   <th>predict 1</th>
+                  <th></th>
                   <th>predict 2</th>
+                  <th></th>
                   <th>resultado 3</th>
                 </thead>
                 <tbody>
                   <tr>
                     <td><div id="predict1" class="resultado"></div></td>
+                    <td><div>suma</div></td>
                     <td><div id="predict2" class="resultado"></div></td>
+                    <td><div>resultado</div></td>
                     <td><div id="resultado3" class="resultado"></div></td>
                   </tr>
                 </tbody>
               </table>
             </div>
             
-          </div>
         </div>
       </div>
 
